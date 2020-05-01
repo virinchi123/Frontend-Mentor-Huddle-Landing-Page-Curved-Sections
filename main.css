@@ -102,22 +102,26 @@ body {
       grid-template-areas: "comm-icon message-icon" "comm-number message-number" "comm message";
   width: 70%;
   margin-top: 10%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -webkit-column-gap: 10em;
+          column-gap: 10em;
 }
 
 .grid img {
-  margin-left: 50%;
-  margin-right: 0;
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: message-icon;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 .grid img:first-of-type {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: comm-icon;
-  margin-right: 50%;
-  margin-left: 0;
+  -ms-grid-column-align: start;
+      justify-self: start;
 }
 
 .grid h1 {
@@ -125,35 +129,33 @@ body {
   -ms-grid-column: 2;
   grid-area: message-number;
   font-size: 3em;
-  margin: auto;
-  margin-left: 50%;
-  margin-right: 0;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 .grid h1:first-of-type {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: comm-number;
-  margin: auto;
-  margin-right: 50%;
-  margin-left: 0;
+  -ms-grid-column-align: start;
+      justify-self: start;
 }
 
 .grid p {
-  margin-left: 50%;
-  margin-right: 0;
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: message;
   color: #808d99;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 .grid p:first-of-type {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: comm;
-  margin-right: 50%;
-  margin-left: 0;
+  -ms-grid-column-align: start;
+      justify-self: start;
 }
 
 .curve {
@@ -396,9 +398,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .subscribe input {
@@ -413,5 +418,43 @@ body {
   border-radius: 5px;
   width: 100px;
   margin-left: 2em;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 0.8em;
+  }
+  .logobar img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 20vh;
+  }
+  .curves .curve {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .curves .curve .message p {
+    text-align: center;
+  }
+  .columns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .columns .column {
+    width: 80%;
+  }
+  .columns .column p {
+    font-size: 1.4  em;
+  }
 }
 /*# sourceMappingURL=main.css.map */

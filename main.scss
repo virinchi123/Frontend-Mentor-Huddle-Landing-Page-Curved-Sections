@@ -89,49 +89,47 @@ body{
 
 .grid{
     display: grid;
+    //grid-template-columns: min-content min-content;
     grid-template-areas: 
         "comm-icon message-icon"
         "comm-number message-number"
         "comm message";
         width: 70%;
     margin-top: 10%;
+    justify-self: center;
+    column-gap: 10em;
 
     img{
         &:first-of-type{
             grid-area: comm-icon;
-            margin-right: 50%;
-            margin-left: 0;
+            justify-self: start;
         }
-        margin-left: 50%;
-        margin-right: 0;
+
         grid-area:message-icon;
+        justify-self: end;
     }
 
     h1{
         &:first-of-type{
             grid-area: comm-number;
-            margin: auto;
-            margin-right: 50%;
-            margin-left: 0;
+            justify-self: start;
         }
 
         grid-area:message-number;
         font-size: 3em;
-        margin: auto;
-        margin-left: 50%;
-        margin-right: 0;
+        justify-self: end;
+
     }
 
     p{
         &:first-of-type{
             grid-area: comm;
-            margin-right: 50%;
-            margin-left: 0;
+            justify-self: start;
         }
-        margin-left: 50%;
-        margin-right: 0;
+
         grid-area:message;
         color: color(grayishBlue);
+        justify-self: end;
     }
 }
 
@@ -300,7 +298,8 @@ body{
 
 .subscribe{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
+    align-items: flex-start;
 
     input{
         border-radius: 5px;
@@ -314,5 +313,45 @@ body{
             border-radius: 5px;
             width:100px;
             margin-left:2em;
+    }
+}
+
+@media(max-width:600px){
+    body{
+        font-size: 0.8em;
+    }
+
+    .logobar{
+        img{
+            object-fit: contain;
+            width: 20vh;
+        }
+    }
+
+    .curves{
+        .curve{
+            display: flex;
+            flex-direction: column-reverse;
+
+            .message{
+                p{
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+
+    .columns{
+        display: flex;
+        flex-direction: column-reverse;
+    
+        .column{
+            width: 80%;
+
+            p{
+                font-size: 1.4  em;
+            }
+        }
     }
 }
